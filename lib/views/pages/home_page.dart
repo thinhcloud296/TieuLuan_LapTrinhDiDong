@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ltdd_tieuluan/views/widgets/dialog_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -93,6 +94,21 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
+                    IconButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return MenuHealthTrackingSimpleDialogWidget();
+                          },
+                        );
+                      },
+                      icon: Image.asset(
+                        'assets/menu.png',
+                        width: 30,
+                        height: 30,
+                      ),
+                    ),
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(Colors.black),

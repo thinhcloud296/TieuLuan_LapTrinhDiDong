@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingDialogWidget extends StatelessWidget {
@@ -114,7 +115,7 @@ class SettingDialogWidget extends StatelessWidget {
                     children: [
                       TextButton(
                         onPressed: () {
-                          showDialog(
+                          showCupertinoDialog(
                             context: context,
                             builder: (context) {
                               return AboutDialogWidget();
@@ -170,7 +171,7 @@ class _EditDialogWidgetState extends State<EditDialogWidget> {
   String selectedGender = 'Nam';
   @override
   Widget build(BuildContext context) {
-    return Dialog(
+    return Dialog.fullscreen(
       backgroundColor: const Color.fromARGB(238, 227, 227, 227),
       child: Padding(
         padding: EdgeInsets.all(15.0),
@@ -337,6 +338,101 @@ class AlertDialogWidget extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ],
+    );
+  }
+}
+
+// SimpleDialog
+class MenuHealthTrackingSimpleDialogWidget extends StatefulWidget {
+  const MenuHealthTrackingSimpleDialogWidget({super.key});
+
+  @override
+  State<MenuHealthTrackingSimpleDialogWidget> createState() =>
+      _MenuHealthTrackingSimpleDialogWidgetState();
+}
+
+class _MenuHealthTrackingSimpleDialogWidgetState
+    extends State<MenuHealthTrackingSimpleDialogWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return SimpleDialog(
+      shadowColor: Colors.black,
+      backgroundColor: const Color.fromARGB(231, 210, 244, 255),
+      title: Text('Select Your Health Goal'),
+      titleTextStyle: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+      children: [
+        Divider(
+          indent: 50.0,
+          endIndent: 50.0,
+          color: const Color.fromARGB(255, 49, 78, 101),
+          thickness: 2.0,
+        ),
+        SimpleDialogOption(
+          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            'Activity',
+            style: TextStyle(fontSize: 22, color: Colors.black),
+          ),
+        ),
+
+        SimpleDialogOption(
+          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            'Running',
+            style: TextStyle(fontSize: 22, color: Colors.black),
+          ),
+        ),
+        SimpleDialogOption(
+          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            'Calories',
+            style: TextStyle(fontSize: 22, color: Colors.black),
+          ),
+        ),
+        SimpleDialogOption(
+          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            'Steps',
+            style: TextStyle(fontSize: 22, color: Colors.black),
+          ),
+        ),
+        SimpleDialogOption(
+          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            'Heart Rate',
+            style: TextStyle(fontSize: 22, color: Colors.black),
+          ),
+        ),
+        SimpleDialogOption(
+          padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            'Workout',
+            style: TextStyle(fontSize: 22, color: Colors.black),
+          ),
         ),
       ],
     );
