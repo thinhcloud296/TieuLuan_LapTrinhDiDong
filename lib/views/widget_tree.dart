@@ -18,23 +18,6 @@ class Demo extends StatefulWidget {
 }
 
 class _DemoState extends State<Demo> {
-  void onFabPressed() {
-    showDialog(
-      context: context,
-      builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          title: Text('Thông báo'),
-          content: Text('Bạn đã nhấn vào Floating Action Button!'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(dialogContext),
-              child: Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,7 +129,12 @@ class _DemoState extends State<Demo> {
       bottomNavigationBar: BottombarWidget(),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: onFabPressed,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => IbmPage()),
+          );
+        },
         backgroundColor: Colors.blueGrey.shade800,
         child: Icon(Icons.add, color: Colors.white),
       ),
