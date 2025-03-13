@@ -17,6 +17,10 @@ class _BottombarWidgetState extends State<BottombarWidget> {
         return NavigationBar(
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(
+              icon: Icon(Icons.calculate_outlined),
+              label: 'IBM Caculator',
+            ),
             NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           ],
           onDestinationSelected: (value) {

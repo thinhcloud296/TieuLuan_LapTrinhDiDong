@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ltdd_tieuluan/data/notifier.dart';
 import 'package:ltdd_tieuluan/views/pages/home_page.dart';
+import 'package:ltdd_tieuluan/views/pages/bmi_page.dart';
 import 'package:ltdd_tieuluan/views/pages/profile_page.dart';
 import 'package:ltdd_tieuluan/views/widgets/bottombar_widget.dart';
 import 'package:ltdd_tieuluan/views/widgets/dialog_widget.dart';
 
-List<Widget> pages = [HomePage(), ProfilePage()];
+List<Widget> pages = [HomePage(), IbmPage(), ProfilePage()];
 
 class Demo extends StatefulWidget {
   const Demo({super.key});
