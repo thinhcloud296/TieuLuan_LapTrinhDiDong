@@ -18,6 +18,23 @@ class Demo extends StatefulWidget {
 }
 
 class _DemoState extends State<Demo> {
+  void onFabPressed() {
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: Text('Thông báo'),
+          content: Text('Bạn đã nhấn vào Floating Action Button!'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext),
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,20 +82,60 @@ class _DemoState extends State<Demo> {
           ),
         ],
       ),
+      /*
+      drawer: SafeArea(
+      ),*/
       drawer: SafeArea(
         child: Drawer(
-          shadowColor: const Color.fromARGB(255, 92, 132, 152),
-          backgroundColor: const Color.fromARGB(53, 37, 37, 37),
+          shadowColor: Colors.grey.shade700,
+          backgroundColor: Color.fromRGBO(210, 210, 210, 1), // Màu nền sáng hơn một chút
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Thêm cái dì đó dô đây đi DANH',
-                style: TextStyle(color: Colors.red, fontSize: 50),
+              DrawerHeader(
+                decoration: BoxDecoration(color: Colors.blueGrey.shade800),
+                child: Center(
+                  child: Container(
+                    height: 80,
+                    width: 80,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 2),
+                    ),
+                    child: Image.asset('assets/elonmusk.avif', fit: BoxFit.cover),
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home, color: Colors.black87),
+                title: Text("Home", style: TextStyle(color: Colors.black87, fontSize: 18)),
+                onTap: () {
+                  selectedPageNotifier.value = 0;
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.calculate, color: Colors.black87),
+                title: Text("IBM Calculator", style: TextStyle(color: Colors.black87, fontSize: 18)),
+                onTap: () {
+                  selectedPageNotifier.value = 1;
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.person, color: Colors.black87),
+                title: Text("Profile", style: TextStyle(color: Colors.black87, fontSize: 18)),
+                onTap: () {
+                  selectedPageNotifier.value = 2;
+                  Navigator.pop(context);
+                },
               ),
             ],
           ),
         ),
       ),
+
       backgroundColor: Color.fromRGBO(232, 232, 232, 1),
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
@@ -87,6 +144,12 @@ class _DemoState extends State<Demo> {
         },
       ),
       bottomNavigationBar: BottombarWidget(),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: onFabPressed,
+        backgroundColor: Colors.blueGrey.shade800,
+        child: Icon(Icons.add, color: Colors.white),
+      ),
     );
   }
 }
