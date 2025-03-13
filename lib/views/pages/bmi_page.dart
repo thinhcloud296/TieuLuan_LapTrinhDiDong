@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ltdd_tieuluan/views/widgets/dialog_widget.dart';
 
 class IbmPage extends StatefulWidget {
   const IbmPage({super.key});
@@ -10,9 +9,6 @@ class IbmPage extends StatefulWidget {
 
 class _IbmPageState extends State<IbmPage> {
   final _formKey = GlobalKey<FormState>();
-  final _firstNameController = TextEditingController();
-  final _lastNameController = TextEditingController();
-  final _idController = TextEditingController();
   final _birthdayController = TextEditingController();
   final _heightController = TextEditingController();
   final _weightController = TextEditingController();
